@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parts</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%; 
+      overflow: hidden; 
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh; 
+      margin: 0; 
+      font-family: Arial, sans-serif;
+      background: black; 
+      padding: 30px; 
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between; 
+      background: black; 
+      gap: 30px; 
+      margin-bottom: 30px;
+    }
+
+    .top-row {
+      display: flex;
+      flex: 1 0 0; 
+      justify-content: space-evenly; 
+      gap: 30px;
+      height: 59vh;
+      opacity: 0;
+      animation: slideInTop 1s forwards; /* Додано анімацію */
+    }
+
+    @keyframes slideInTop {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .horizontal-scroll {
+      flex: 1;
+      overflow-x: auto;
+      overflow-y: hidden; 
+      background: #E9E3D9;
+      padding: 10px;
+      white-space: nowrap; 
+      scrollbar-width: none;
+      opacity: 0;
+      animation: slideInHorizontal 3s -1s forwards; /* Затримка на 2 секунди */
+    }
+
+    @keyframes slideInHorizontal {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .vertical-scroll {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden; 
+      scrollbar-width: none;
+      background: #E9E3D9;
+      padding: 10px;
+      height: 100%; 
+      padding: 20px 25px 25px 25px;
+      opacity: 0;
+      animation: slideInVertical 2s 2s forwards; /* Затримка на 4 секунди */
+    }
+
+    @keyframes slideInVertical {
+      0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .bottom-row {
+      padding-top: 20px;
+      height: 41vh; 
+      background: #E9E3D9;
+      font-weight: 300;
+      opacity: 0;
+      animation: slideInBottom 2s 3s forwards; /* Затримка на 6 секунд */
+    }
+
+    @keyframes slideInBottom {
+      0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .schrift1 {
+      font-size: 280px;
+      line-height: 220px;
+      font-weight: 900;
+    }
+
+    #parts {
+      margin-top: -13px; 
+    }
+
+    .schrift2 {
+      font-size: 80px;
+      line-height: 80px;
+    }
+
+    .horizontal-scroll1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
+
+    .rows {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: 112px;
+    }
+
+    #www {
+      word-spacing: 251px;
+      padding: 0 0 0 30px;
+    }
+
+    .at {
+      padding: 30px 0 0 30px;
+      font-size: 25px;
+    }
+
+    #total {
+      text-align: center;
+    }
+
+    .post {
+      margin-top: -115px;
+    }
+
+    .flexline {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px 0 30px;
+      font-size: 30px;
+    }
+
+    .horizontal-scroll .content {
+      transition: color 0.1s linear; 
+    }
+
+    .vertical-scroll .content {
+      transition: color 0.1s linear; 
+    }
+
+    @keyframes colorChange {
+      0% { color: rgb(0, 0, 0); }
+      50% { color: rgb(128, 0, 32); }
+      100% { color: rgb(255, 255, 255); }
+    }
+
+    .bottom-row .flexline p {
+      animation: colorChange 7s infinite alternate ease-in-out;
+    }
+
+        /* Стрілка */
+        .scroll-arrow {
+      position: absolute;
+      bottom: 20px; /* Відступ від низу */
+      left: 50%;
+      transform: translateX(-50%); /* Поцентрування */
+      font-size: 50px;
+      color: #ffffff;
+      cursor: pointer;
+      animation: bounceArrow 2s infinite ease-in-out; /* Додаємо анімацію до стрілки */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-row">
+      <div class="horizontal-scroll">
+        <div class="horizontal-scroll1">
+          <div id="parts" class="content schrift1">
+            &nbsp; PARTS
+          </div>
+          <div class="content schrift2">
+            &
+          </div>
+        </div>
+
+        <div class="content schrift1">
+          LABOUR
+        </div>
+      </div>
+
+      <div class="vertical-scroll content">
+        <div class="rows">
+          <div>    
+            <div>
+              TO: QUARTRIÈME ÉTAGE
+            </div>
+            <div>
+              7 RUE DE LA BOURSE, 31000 TOULOUSE-FR.
+            </div>
+          </div>  
+
+          <div>    
+            INVOICE №0001 <br>01-06-2021
+          </div>
+        </div>
+        <div class="rows">
+          <div>    
+            <br>
+            DESCRIPTION :
+          </div>
+          <div>    
+            <br>
+            AMOUNT
+          </div>
+        </div>  
+        <div class="rows">
+          <div class="post">    
+            <br>
+            POST-PRODUCTION ( 3 DAYS ) <br> LOCATION SCOUTING <br>CAMERA, LENS AND GRIP RENTAL
+          </div>
+          <div class="post">    
+            <br>
+            $0,000.00 <br>$0,000.00 <br>$0,000.00
+          </div>  
+        </div>
+        <div class="rows">
+          <div>    
+            <br>
+            SUBTOTAL
+          </div>
+          <div>    
+            <br>
+            $0,000.00
+          </div>
+        </div>  
+        
+        <div class="rows">
+          <div>    
+            TAX
+          </div>
+
+          <div>    
+            $0,000.00
+          </div>
+        </div>
+          
+        <div id="total">    
+          <B>TOTAL : $0,000.00</B>
+        </div>
+
+           <!-- Стрілка вниз -->
+           <div class="scroll-arrow">&#8595;</div> <!-- Стрілка -->
+      </div>
+    </div>
+    
+    <div class="bottom-row">
+      <b>
+        <div class="flexline">
+          <p>PARTS</p>
+          <p>AND</p>
+          <p>LABOUR</p>
+          <p>IS</p>
+          <p>A</p>
+          <p>CREATIVE</p>
+          <p>STUDIO</p>
+          <p>WITH</p>
+          <p>A</p>
+          <p>ROSTER</p>
+        </div>    
+        <div class="flexline">
+          <p>OF</p>
+          <p>AWARD</p>
+          <p>WINNING</p>
+          <p>ARTISTS</p>
+          <p>AND</p>
+          <p>DIRECTORS</p>
+          <p>.</p>
+          <p>WE</p>
+          <p>ARE</p>
+        </div>
+        <div class="flexline">
+          <p>CURRENTLY</p>
+          <p>BASED</p>
+          <p>IN</p>
+          <p>LOS</p>
+          <p>ANGELES</p>
+          <p>,</p>
+          <p>NEW</p>
+          <p>YORK</p>
+          <p>AND</p>
+          <p>TORONTO</p>
+          <p>.</p>
+        </div>    
+      </b>    
+
+      <div>
+        <b>
+          <p class="at">@</p>
+          <div class="flexline">
+            <p> WWW</p> 
+            <p>.</p>
+            <p>PARTSANDLABOUR</p>
+            <p>.</p>
+            <p>COM</p>
+          </div>
+        </b>
+      </div>
+    </div>  
+  </div>
+
+  <script>
+    window.onload = function() {
+      const scrollContainerH = document.querySelector(".horizontal-scroll");
+      const textElementsH = scrollContainerH.querySelectorAll(".content");
+
+      const scrollContainerV = document.querySelector(".vertical-scroll");
+      const textElementsV = scrollContainerV.querySelectorAll(".vertical-scroll .rows div");
+
+      // Функція для оновлення кольору тексту
+      function updateTextColor(scrollProgress, elements) {
+          let red, green, blue;
+
+          if (scrollProgress < 0.5) {
+              let factor = scrollProgress * 2;
+              red = Math.round(0 + (128 - 0) * factor);
+              green = 0;
+              blue = Math.round(0 + (32 - 0) * factor);
+          } else {
+              let factor = (scrollProgress - 0.5) * 2;
+              red = Math.round(128 + (255 - 128) * factor);
+              green = Math.round(0 + (255 - 0) * factor);
+              blue = Math.round(32 + (255 - 32) * factor);
+          }
+
+          const newColor = `rgb(${red}, ${green}, ${blue})`;
+          elements.forEach((el) => {
+              el.style.color = newColor;
+          });
+      }
+
+      // Відстежуємо горизонтальний скрол
+      scrollContainerH.scrollLeft = scrollContainerH.scrollWidth;
+      setTimeout(() => {
+          scrollContainerH.scrollTo({
+              left: 0,
+              behavior: "smooth"
+          });
+
+          scrollContainerH.addEventListener("scroll", function() {
+              const maxScroll = scrollContainerH.scrollWidth - scrollContainerH.clientWidth;
+              const scrollProgress = scrollContainerH.scrollLeft / maxScroll; 
+              updateTextColor(scrollProgress, textElementsH);
+          });
+      }, 500);
+
+      // Відстежуємо вертикальний скрол
+      scrollContainerV.addEventListener("scroll", function() {
+          const maxScroll = scrollContainerV.scrollHeight - scrollContainerV.clientHeight;
+          const scrollProgress = scrollContainerV.scrollTop / maxScroll;
+          updateTextColor(scrollProgress, textElementsV);
+      });
+  };
+  </script>
+</body>
+</html>
