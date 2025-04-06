@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Olha</title>
+  <title>Parts</title>
   <style>
-    
     * {
       margin: 0;
       padding: 0;
@@ -24,7 +23,7 @@
       margin: 0; 
       font-family: Arial, sans-serif;
       background: black; 
-      padding: 10px; 
+      padding: 30px; 
     }
 
     .container {
@@ -33,16 +32,18 @@
       flex-grow: 1;
       justify-content: space-between; 
       background: black; 
-      gap: 10px; 
-      margin-bottom: 10px;
+      gap: 30px; 
+      margin-bottom: 30px;
     }
 
     .top-row {
       display: flex;
       flex: 1 0 0; 
       justify-content: space-evenly; 
-      gap: 10px; 
+      gap: 30px;
+      height: 59vh;
     }
+
 
     .horizontal-scroll {
       flex: 1;
@@ -51,77 +52,242 @@
       background: #E9E3D9;
       padding: 10px;
       white-space: nowrap; 
+      scrollbar-width: none;
     }
 
-    .horizontal-scroll::-webkit-scrollbar {
-      width: 0; 
-    }
 
-    .horizontal-scroll .content {
-      display: inline-block; 
-      width: 300%;
-    }  
 
     .vertical-scroll {
       flex: 1;
       overflow-y: auto;
       overflow-x: hidden; 
-      background:#E9E3D9;
+      scrollbar-width: none;
+      background: #E9E3D9;
       padding: 10px;
+      height: 100%; 
+      padding: 20px 25px 25px 25px;
     }
 
-    .vertical-scroll::-webkit-scrollbar {
-      width: 0; 
-    }
-
-    .vertical-scroll .content {
-      height: 300%; 
-    }
 
     .bottom-row {
-      height: 25vh; 
+      padding-top: 20px;
+      height: 30vh; 
       background: #E9E3D9;
-      text-align: center;
-      line-height: 25vh; 
-      padding: 10px;
+      font-weight: 300;
     }
+
+
+    .schrift1 {
+      font-size: 280px;
+      line-height: 220px;
+      font-weight: 900;
+    }
+
+    #parts {
+      margin-top: -13px; 
+    }
+
+    .schrift2 {
+      font-size: 80px;
+      line-height: 80px;
+    }
+
+    .horizontal-scroll1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
+
+    .rows {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: 112px;
+    }
+
+    #www {
+      word-spacing: 251px;
+      padding: 0 0 0 30px;
+    }
+
+    .at {
+      padding: 30px 0 0 30px;
+      font-size: 25px;
+    }
+
+    #total {
+      text-align: center;
+    }
+
+    .post {
+      margin-top: -115px;
+    }
+
+    .flexline {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px 0 30px;
+      font-size: 30px;
+    }
+
+    .scroll-arrow {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 50px;
+      color: #ffffff;
+    }
+
   </style>
 </head>
 <body>
   <div class="container">
-
     <div class="top-row">
       <div class="horizontal-scroll">
-        <div class="content">
-          parts &
+        <div class="horizontal-scroll1">
+          <div id="parts" class="content schrift1">
+            &nbsp; PARTS
+          </div>
+          <div class="content schrift2">
+            &
+          </div>
         </div>
-        <div class="content">
-          labour
+
+        <div class="content schrift1">
+          LABOUR
         </div>
       </div>
 
+      <div class="vertical-scroll content">
 
-      <div class="vertical-scroll">
-          <div id="child-1" class="content">    
-            <div id="child-1.1" class="content">
-              TO:
+        <div class="rows">
+          <div>    
+            <div>
+              TO: QUARTRIÈME ÉTAGE
             </div>
-            <div id="child-1.2" class="content">
-              QUARTRIÈME ÉTAGE <BR>7 RUE DE LA BOURSE, 31000 TOULOUSE-FR.
+            <div>
+              7 RUE DE LA BOURSE, 31000 TOULOUSE-FR.
             </div>
           </div>  
+          <div>    
+            INVOICE №0001 <br>01-06-2021
+          </div>
+        </div>
 
-          <div id="child-2" class="content">    
-            <br id="child-2.1" class="content">
-              INVOICE №0001 <br>01-06-2021</br>
-            </div>
-          </div>   
+        <div class="rows">
+          <div>    
+            <br>
+            DESCRIPTION :
+          </div>
+          <div>    
+            <br>
+            AMOUNT
+          </div>
+        </div>  
+
+        <div class="rows">
+          <div class="post">    
+            <br>
+            POST-PRODUCTION ( 3 DAYS ) <br> LOCATION SCOUTING <br>CAMERA, LENS AND GRIP RENTAL
+          </div>
+          <div class="post">    
+            <br>
+            $0,000.00 <br>$0,000.00 <br>$0,000.00
+          </div>  
+        </div>
+
+        <div class="rows">
+          <div>    
+            <br>
+            SUBTOTAL
+          </div>
+          <div>    
+            <br>
+            $0,000.00
+          </div>
+        </div>  
+        
+        <div class="rows">
+          <div>    
+            TAX
+          </div>
+          <div>    
+            $0,000.00
+          </div>
+        </div>
+          
+        <div id="total">    
+          <B>TOTAL : $0,000.00</B>
+        </div>
+
+        <div class="scroll-arrow">&#8595;</div>
+
 
       </div>
+
     </div>
+    
+
     <div class="bottom-row">
-      parts and labour
-    </div>
+      <b>
+        <div class="flexline">
+          <p>PARTS</p>
+          <p>AND</p>
+          <p>LABOUR</p>
+          <p>IS</p>
+          <p>A</p>
+          <p>CREATIVE</p>
+          <p>STUDIO</p>
+          <p>WITH</p>
+          <p>A</p>
+          <p>ROSTER</p>
+        </div>  
+          
+        <div class="flexline">
+          <p>OF</p>
+          <p>AWARD</p>
+          <p>WINNING</p>
+          <p>ARTISTS</p>
+          <p>AND</p>
+          <p>DIRECTORS</p>
+          <p>.</p>
+          <p>WE</p>
+          <p>ARE</p>
+        </div>
+
+        <div class="flexline">
+          <p>CURRENTLY</p>
+          <p>BASED</p>
+          <p>IN</p>
+          <p>LOS</p>
+          <p>ANGELES</p>
+          <p>,</p>
+          <p>NEW</p>
+          <p>YORK</p>
+          <p>AND</p>
+          <p>TORONTO</p>
+          <p>.</p>
+        </div>    
+      </b>    
+
+      <div>
+        <b>
+          <p class="at">@</p>
+          <div class="flexline">
+            <p> WWW</p> 
+            <p>.</p>
+            <p>PARTSANDLABOUR</p>
+            <p>.</p>
+            <p>COM</p>
+          </div>
+        </b>
+      </div>
+
+
+    </div>  
   </div>
+
 </body>
 </html>
