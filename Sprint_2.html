@@ -1,477 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parts</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parts</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    html, body {
-      height: 100%; 
-      overflow: hidden; 
-    }
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
 
-    body {
-      display: flex;
-      flex-direction: column;
-      height: 100vh; 
-      margin: 0; 
-      font-family: Arial, sans-serif;
-      background: black; 
-      padding: 30px; 
-    }
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: black;
+        padding: 30px;
+      }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      justify-content: space-between; 
-      background: black; 
-      gap: 30px; 
-      margin-bottom: 30px;
-    }
+      .container {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: space-between;
+        background: black;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
 
-    .top-row {
-      display: flex;
-      flex: 1 0 0; 
-      justify-content: space-evenly; 
-      gap: 30px;
-      height: 59vh;
-      opacity: 0;
-      animation: slideInTop 1s forwards;
-    }
-
-    @keyframes slideInTop {
-      0% {
-        transform: translateY(-100%);
+      .top-row {
+        display: flex;
+        flex: 1 0 0;
+        justify-content: space-evenly;
+        gap: 30px;
+        height: 59vh;
         opacity: 0;
+        animation: slideInTop 1s forwards;
       }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
+
+      @keyframes slideInTop {
+        0% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
       }
-    }
 
-    .horizontal-scroll {
-      flex: 1;
-      overflow-x: auto;
-      overflow-y: hidden; 
-      background: #E9E3D9;
-      padding: 10px;
-      white-space: nowrap; 
-      scrollbar-width: none;
-      opacity: 0;
-      animation: slideInHorizontal 5s -2s forwards;
-    }
-
-    @keyframes slideInHorizontal {
-      0% {
-        transform: translateX(-100%);
+      .horizontal-scroll {
+        flex: 1;
+        overflow-x: auto;
+        overflow-y: hidden;
+        background: #e9e3d9;
+        padding: 10px;
+        white-space: nowrap;
+        scrollbar-width: none;
         opacity: 0;
+        animation: slideInHorizontal 5s -2s forwards;
       }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
+
+      @keyframes slideInHorizontal {
+        0% {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
       }
-    }
 
-    .vertical-scroll {
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden; 
-      scrollbar-width: none;
-      background: #E9E3D9;
-      padding: 10px;
-      height: 100%; 
-      padding: 20px 25px 25px 25px;
-      opacity: 0;
-      animation: slideInVertical 5s -2s forwards;
-    }
-
-    @keyframes slideInVertical {
-      0% {
-        transform: translateY(100%);
+      .vertical-scroll {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: none;
+        background: #e9e3d9;
+        padding: 10px;
+        height: 100%;
+        padding: 20px 25px 25px 25px;
         opacity: 0;
+        animation: slideInVertical 5s -2s forwards;
       }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
+
+      @keyframes slideInVertical {
+        0% {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
       }
-    }
 
-    .bottom-row {
-      padding-top: 20px;
-      height: 30vh; 
-      background: #E9E3D9;
-      font-weight: 300;
-      opacity: 0;
-      animation: slideInBottom 2s 1s forwards;
-    }
-
-    @keyframes slideInBottom {
-      0% {
-        transform: translateY(100%);
+      .bottom-row {
+        padding-top: 20px;
+        height: 30vh;
+        background: #e9e3d9;
+        font-weight: 300;
         opacity: 0;
+        animation: slideInBottom 2s 1s forwards;
       }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
+
+      @keyframes slideInBottom {
+        0% {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
       }
-    }
 
-    .schrift1 {
-      font-size: 280px;
-      line-height: 220px;
-      font-weight: 900;
-    }
+      .schrift1 {
+        font-size: 280px;
+        line-height: 220px;
+        font-weight: 900;
+      }
 
-    #parts {
-      margin-top: -13px; 
-    }
+      #parts {
+        margin-top: -13px;
+      }
 
-    .schrift2 {
-      font-size: 80px;
-      line-height: 80px;
-    }
+      .schrift2 {
+        font-size: 80px;
+        line-height: 80px;
+      }
 
-    .horizontal-scroll1 {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: flex-end;
-    }
+      .horizontal-scroll1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-end;
+      }
 
-    .rows {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding-bottom: 112px;
-    }
+      .rows {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-bottom: 112px;
+      }
 
-    #www {
-      word-spacing: 251px;
-      padding: 0 0 0 30px;
-    }
+      #www {
+        word-spacing: 251px;
+        padding: 0 0 0 30px;
+      }
 
-    .at {
-      padding: 30px 0 0 30px;
-      font-size: 25px;
-    }
+      .at {
+        padding: 30px 0 0 30px;
+        font-size: 25px;
+      }
 
-    #total {
-      text-align: center;
-    }
+      #total {
+        text-align: center;
+      }
 
-    .post {
-      margin-top: -115px;
-    }
+      .post {
+        margin-top: -115px;
+      }
 
-    .flexline {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 30px 0 30px;
-      font-size: 30px;
-    }
+      .flexline {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 30px 0 30px;
+        font-size: 30px;
+      }
 
-    .horizontal-scroll .content {
-      transition: color 0.1s linear; 
-    }
+      .horizontal-scroll .content {
+        transition: color 0.1s linear;
+      }
 
-    .vertical-scroll .content {
-      transition: color 0.1s linear; 
-    }
+      .vertical-scroll .content {
+        transition: color 0.1s linear;
+      }
 
-    @keyframes colorChange {
-      0% { color: rgb(0, 0, 0); }
-      50% { color: rgb(128, 0, 32); }
-      100% { color: rgb(255, 255, 255); }
-    }
+      @keyframes colorChange {
+        0% {
+          color: rgb(0, 0, 0);
+        }
+        50% {
+          color: rgb(128, 0, 32);
+        }
+        100% {
+          color: rgb(255, 255, 255);
+        }
+      }
 
-    .bottom-row .flexline p {
-      animation: colorChange 7s infinite alternate ease-in-out;
-    }
+      .bottom-row .flexline p {
+        animation: colorChange 7s infinite alternate ease-in-out;
+      }
 
-    .scroll-arrow {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 50px;
-      color: #ffffff;
-      cursor: pointer;
-      animation: bounceArrow 2s infinite ease-in-out;
-    }
-
-
+      .scroll-arrow {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 50px;
+        color: #ffffff;
+        cursor: pointer;
+        animation: bounceArrow 2s infinite ease-in-out;
+      }
 
       @media (max-width: 1120px) {
-          .top-row {
-              flex-direction: column;
-              height: auto;
-              gap: 30px;
-          }
+        .top-row {
+          flex-direction: column;
+          height: auto;
+          gap: 30px;
+        }
 
-          .horizontal-scroll,
-          .vertical-scroll {
-              width: 100%;
-              flex: none;
-          }
+        .horizontal-scroll,
+        .vertical-scroll {
+          width: 100%;
+          flex: none;
+        }
 
-          .vertical-scroll {
-              height: 170px;
-          }
+        .vertical-scroll {
+          height: 170px;
+        }
 
+        .horizontal-scroll1 {
+          align-items: flex-start;
+          height: 150px;
+        }
 
-          .horizontal-scroll1 {
-              align-items: flex-start;
-              height: 150px;
-          }
+        .schrift1 {
+          font-size: 220px;
+          line-height: 220px;
+        }
 
-          .schrift1 {
-              font-size: 220px;
-              line-height: 220px;
-          }
+        .schrift2 {
+          font-size: 60px;
+          line-height: 60px;
+        }
 
-          .schrift2 {
-              font-size: 60px;
-              line-height: 60px;
-          }
+        .bottom-row {
+          height: auto;
+          padding: 20px;
+        }
 
-          .bottom-row {
-              height: auto;
-              padding: 20px;
-          }
+        .flexline {
+          font-size: 10px;
+          gap: 9px;
+          padding: 0;
+        }
 
-          .flexline {
-              font-size: 10px;
-              gap: 9px;
-              padding: 0;
-          }
+        .at {
+          padding: 0;
+          font-size: 11px;
+        }
 
-          .at {
-              padding: 0;
-              font-size: 11px;
-          }
+        .rows {
+          flex-direction: column;
+          gap: 10px;
+        }
 
-          .rows {
-              flex-direction: column;
-              gap: 10px;
-          }
-
-          .post {
-              margin-top: 0;
-          }
-
+        .post {
+          margin-top: 0;
+        }
       }
-
-  </style>
-
-</head>
-<body>
-  <div class="container">
-    <div class="top-row">
-
-      <div class="horizontal-scroll">
-        <div class="horizontal-scroll1">
-          <div id="parts" class="content schrift1">
-            &nbsp; PARTS
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-row">
+        <div class="horizontal-scroll">
+          <div class="horizontal-scroll1">
+            <div id="parts" class="content schrift1">&nbsp; PARTS</div>
+            <div class="content schrift2">&</div>
           </div>
-          <div class="content schrift2">
-            &
-          </div>
+
+          <div class="content schrift1">LABOUR &nbsp;</div>
         </div>
 
-        <div class="content schrift1">
-          LABOUR
+        <div class="vertical-scroll content">
+          <div class="rows">
+            <div>
+              <div>TO: QUARTRIÈME ÉTAGE</div>
+              <div>7 RUE DE LA BOURSE, 31000 TOULOUSE-FR.</div>
+            </div>
+
+            <div>INVOICE №0001 <br />01-06-2021</div>
+          </div>
+
+          <div class="rows">
+            <div>
+              <br />
+              DESCRIPTION :
+            </div>
+            <div>
+              <br />
+              AMOUNT
+            </div>
+          </div>
+
+          <div class="rows">
+            <div class="post">
+              <br />
+              POST-PRODUCTION ( 3 DAYS ) <br />
+              LOCATION SCOUTING <br />CAMERA, LENS AND GRIP RENTAL
+            </div>
+            <div class="post">
+              <br />
+              $0,000.00 <br />$0,000.00 <br />$0,000.00
+            </div>
+          </div>
+
+          <div class="rows">
+            <div>
+              <br />
+              SUBTOTAL
+            </div>
+            <div>
+              <br />
+              $0,000.00
+            </div>
+          </div>
+
+          <div class="rows">
+            <div>TAX</div>
+            <div>$0,000.00</div>
+          </div>
+
+          <div id="total">
+            <b>TOTAL : $0,000.00</b>
+          </div>
+
+          <div class="scroll-arrow">&#8595;</div>
         </div>
       </div>
 
-      <div class="vertical-scroll content">
-
-        <div class="rows">
-          <div>    
-            <div>
-              TO: QUARTRIÈME ÉTAGE
-            </div>
-            <div>
-              7 RUE DE LA BOURSE, 31000 TOULOUSE-FR.
-            </div>
-          </div>  
-
-          <div>    
-            INVOICE №0001 <br>01-06-2021
-          </div>
-        </div>
-
-        <div class="rows">
-          <div>    
-            <br>
-            DESCRIPTION :
-          </div>
-          <div>    
-            <br>
-            AMOUNT
-          </div>
-        </div> 
-          
-        <div class="rows">
-          <div class="post">    
-            <br>
-            POST-PRODUCTION ( 3 DAYS ) <br> LOCATION SCOUTING <br>CAMERA, LENS AND GRIP RENTAL
-          </div>
-          <div class="post">    
-            <br>
-            $0,000.00 <br>$0,000.00 <br>$0,000.00
-          </div>  
-        </div>
-
-        <div class="rows">
-          <div>    
-            <br>
-            SUBTOTAL
-          </div>
-          <div>    
-            <br>
-            $0,000.00
-          </div>
-        </div>  
-        
-        <div class="rows">
-          <div>    
-            TAX
-          </div>
-          <div>    
-            $0,000.00
-          </div>
-        </div>
-          
-        <div id="total">    
-          <B>TOTAL : $0,000.00</B>
-        </div>
-
-     
-        <div class="scroll-arrow">&#8595;</div> 
-
-      </div>
-    </div>
-    
-    <div class="bottom-row">
-      <b>
-
-        <div class="flexline">
-          <p>PARTS</p>
-          <p>AND</p>
-          <p>LABOUR</p>
-          <p>IS</p>
-          <p>A</p>
-          <p>CREATIVE</p>
-          <p>STUDIO</p>
-          <p>WITH</p>
-          <p>A</p>
-          <p>ROSTER</p>
-        </div> 
-          
-        <div class="flexline">
-          <p>OF</p>
-          <p>AWARD</p>
-          <p>WINNING</p>
-          <p>ARTISTS</p>
-          <p>AND</p>
-          <p>DIRECTORS</p>
-          <p>.</p>
-          <p>WE</p>
-          <p>ARE</p>
-        </div>
-
-        <div class="flexline">
-          <p>CURRENTLY</p>
-          <p>BASED</p>
-          <p>IN</p>
-          <p>LOS</p>
-          <p>ANGELES</p>
-          <p>,</p>
-          <p>NEW</p>
-          <p>YORK</p>
-          <p>AND</p>
-          <p>TORONTO</p>
-          <p>.</p>
-        </div> 
-          
-      </b>    
-
-      <div>
+      <div class="bottom-row">
         <b>
-          <p class="at">@</p>
           <div class="flexline">
-            <p> WWW</p> 
+            <p>PARTS</p>
+            <p>AND</p>
+            <p>LABOUR</p>
+            <p>IS</p>
+            <p>A</p>
+            <p>CREATIVE</p>
+            <p>STUDIO</p>
+            <p>WITH</p>
+            <p>A</p>
+            <p>ROSTER</p>
+          </div>
+
+          <div class="flexline">
+            <p>OF</p>
+            <p>AWARD</p>
+            <p>WINNING</p>
+            <p>ARTISTS</p>
+            <p>AND</p>
+            <p>DIRECTORS</p>
             <p>.</p>
-            <p>PARTSANDLABOUR</p>
+            <p>WE</p>
+            <p>ARE</p>
+          </div>
+
+          <div class="flexline">
+            <p>CURRENTLY</p>
+            <p>BASED</p>
+            <p>IN</p>
+            <p>LOS</p>
+            <p>ANGELES</p>
+            <p>,</p>
+            <p>NEW</p>
+            <p>YORK</p>
+            <p>AND</p>
+            <p>TORONTO</p>
             <p>.</p>
-            <p>COM</p>
           </div>
         </b>
+
+        <div>
+          <b>
+            <p class="at">@</p>
+            <div class="flexline">
+              <p>WWW</p>
+              <p>.</p>
+              <p>PARTSANDLABOUR</p>
+              <p>.</p>
+              <p>COM</p>
+            </div>
+          </b>
+        </div>
       </div>
+    </div>
 
-    </div>  
-  </div>
+    <script>
+      window.onload = function () {
+        const scrollContainerH = document.querySelector(".horizontal-scroll");
+        const textElementsH = scrollContainerH.querySelectorAll(".content");
 
-  <script>
-    window.onload = function() {
-      const scrollContainerH = document.querySelector(".horizontal-scroll");
-      const textElementsH = scrollContainerH.querySelectorAll(".content");
+        const scrollSpeed = 1;
+        let isResetting = false;
 
-      const scrollContainerV = document.querySelector(".vertical-scroll");
-      const textElementsV = scrollContainerV.querySelectorAll(".vertical-scroll .rows div");
-
-      function updateTextColor(scrollProgress, elements) {
+        function updateTextColor(scrollProgress, elements) {
           let red, green, blue;
 
           if (scrollProgress < 0.5) {
-              let factor = scrollProgress * 2;
-              red = Math.round(0 + (128 - 0) * factor);
-              green = 0;
-              blue = Math.round(0 + (32 - 0) * factor);
+            let factor = scrollProgress * 2;
+            red = Math.round(0 + (128 - 0) * factor);
+            green = 0;
+            blue = Math.round(0 + (32 - 0) * factor);
           } else {
-              let factor = (scrollProgress - 0.5) * 2;
-              red = Math.round(128 + (255 - 128) * factor);
-              green = Math.round(0 + (255 - 0) * factor);
-              blue = Math.round(32 + (255 - 32) * factor);
+            let factor = (scrollProgress - 0.5) * 2;
+            red = Math.round(128 + (255 - 128) * factor);
+            green = Math.round(0 + (255 - 0) * factor);
+            blue = Math.round(32 + (255 - 32) * factor);
           }
 
           const newColor = `rgb(${red}, ${green}, ${blue})`;
           elements.forEach((el) => {
-              el.style.color = newColor;
+            el.style.color = newColor;
           });
-      }
+        }
 
+        function autoScroll() {
+          if (!isResetting) {
+            const maxScroll =
+              scrollContainerH.scrollWidth - scrollContainerH.clientWidth;
 
-      scrollContainerH.scrollLeft = scrollContainerH.scrollWidth;
-      setTimeout(() => {
-          scrollContainerH.scrollTo({
-              left: 0,
-              behavior: "smooth"
-          });
+            if (scrollContainerH.scrollLeft < maxScroll) {
+              scrollContainerH.scrollBy({
+                left: scrollSpeed,
+                behavior: "smooth",
+              });
 
-          scrollContainerH.addEventListener("scroll", function() {
-              const maxScroll = scrollContainerH.scrollWidth - scrollContainerH.clientWidth;
-              const scrollProgress = scrollContainerH.scrollLeft / maxScroll; 
+              const scrollProgress = scrollContainerH.scrollLeft / maxScroll;
               updateTextColor(scrollProgress, textElementsH);
-          });
-      }, 500);
+            } else {
+              isResetting = true;
 
+              scrollContainerH.scrollTo({ left: 0, behavior: "smooth" });
 
+              setTimeout(() => {
+                isResetting = false;
+              }, 1000);
+            }
+          }
 
-      scrollContainerV.addEventListener("scroll", function() {
-          const maxScroll = scrollContainerV.scrollHeight - scrollContainerV.clientHeight;
-          const scrollProgress = scrollContainerV.scrollTop / maxScroll;
-          updateTextColor(scrollProgress, textElementsV);
-      });
-  };
-  </script>
-</body>
+          requestAnimationFrame(autoScroll);
+        }
+
+        autoScroll();
+      };
+    </script>
+  </body>
 </html>
